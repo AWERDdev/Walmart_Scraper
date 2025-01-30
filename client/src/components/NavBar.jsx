@@ -9,7 +9,7 @@ return(
         </div>
         <div className="Links flex gap-5 mr-5">
             <a href="https://github.com/AWERDdev" className="GITRepo text-blue-600 font-bold ">AWERDdev</a>
-            <a href="https://github.com/AWERDdev" className="GITRepo text-blue-600 font-bold ">GitRepo</a>
+            <a href="https://github.com/AWERDdev/PythonProject" className="GITRepo text-blue-600 font-bold ">AppRepo</a>
         </div>
     </header>
 </main>

@@ -8,8 +8,8 @@ return(
             <h1 className="text-[2.5rem] text-blue-600 font-bold">Web Scraper</h1>
         </div>
         <div className="Links flex gap-5 mr-5">
-            <a href="https://github.com/AWERDdev" className="GITRepo text-blue-600 font-bold ">AWERDdev</a>
-            <a href="https://github.com/AWERDdev/PythonProject" className="GITRepo text-blue-600 font-bold ">AppRepo</a>
+            <a href="https://github.com/AWERDdev" className="GITRepo text-gray-800 font-bold ">AWERDdev</a>
+            <a href="https://github.com/AWERDdev/PythonProject" className="GITRepo text-gray-800 font-bold ">AppRepo</a>
         </div>
     </header>
 </main>

@@ -6,27 +6,27 @@ function App() {
   const [URL,setURL] = useState('')
   const [WarningText,setWarningText] = useState('')
   const [scrapedData,setscrapedData] = useState('')
-
-  const sendData = async ()=>{
+  const [isLoading, setIsLoading] = useState(false);
+  
+  const sendData = async () => {
     const urlPattern = /^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6})(\/\S*)?$/i;
-    if(urlPattern.test(URL)){
-      try{
-        const response = await fetch(`http://localhost:3500/fetchURL?value=${URL}`)
-        const data = await response.json()
-        console.log(data)
-        console.log('valid')
-        setWarningText('')
-        setscrapedData(data.data)
+    if(urlPattern.test(URL)) {
+      try {
+        setIsLoading(true);
+        const response = await fetch(`http://localhost:3500/fetchURL?value=${URL}`);
+        const data = await response.json();
+        setWarningText('');
+        setscrapedData(data.data);
+      } catch(error) {
+        console.log(`failed to send data ${error}`);
+      } finally {
+        setIsLoading(false);
       }
-      catch(error){
-        console.log(`failed to send data ${error}`)
-      }
-    }else{
-      setWarningText('Please enter a valid URL')
-      console.log('invalid')
+    } else {
+      setWarningText('Please enter a valid URL');
     }
-
-  }
+  };
+  
 
   return (
     <>
@@ -70,13 +70,17 @@ function App() {
     </div>
   </div>
   <div className="Result-container grid justify-center items-center w-auto h-auto mt-[5rem]">
-  <Result
-   Item_name={scrapedData.product_name}
-   Item_Image={scrapedData.image_url}
-   wasPrice={scrapedData.was_price}
-   currentPrice={scrapedData.current_price}
-   discount={scrapedData.discount}
-  />
+  {isLoading ? (
+    <div className="loading">Loading...</div>
+  ) : scrapedData && (
+    <Result
+      Item_name={scrapedData.product_name}
+      Item_Image={scrapedData.image_url}
+      wasPrice={scrapedData.was_price}
+      currentPrice={scrapedData.current_price}
+      discount={scrapedData.discount}
+    />
+  )}
 </div>
 
 </main>

@@ -1,10 +1,11 @@
 import './App.css'
 import {useState} from 'react'
 import NavBar from './components/NavBar'
-
+import Result from './components/Result'
 function App() {
   const [URL,setURL] = useState('')
   const [WarningText,setWarningText] = useState('')
+  const [scrapedData,setscrapedData] = useState('')
 
   const sendData = async ()=>{
     const urlPattern = /^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6})(\/\S*)?$/i;
@@ -15,6 +16,7 @@ function App() {
         console.log(data)
         console.log('valid')
         setWarningText('')
+        setscrapedData(data.data)
       }
       catch(error){
         console.log(`failed to send data ${error}`)
@@ -67,14 +69,16 @@ function App() {
       </div>
     </div>
   </div>
-  <div className="Result-container hidden justify-center items-center w-auto h-auto mt-[5rem]">
-    
-    <div className="container  bg-white h-auto w-[55vw]  box-shadow-lg rounded-md pr-5 pl-5 pb-5">
-      <div className="title"><h1 className='text-[1.5rem]'>Results</h1></div>
-      <div className="Result-content"></div>
-    </div>
+  <div className="Result-container grid justify-center items-center w-auto h-auto mt-[5rem]">
+  <Result
+   Item_name={scrapedData.product_name}
+   Item_Image={scrapedData.image_url}
+   wasPrice={scrapedData.was_price}
+   currentPrice={scrapedData.current_price}
+   discount={scrapedData.discount}
+  />
+</div>
 
-  </div>
 </main>
     </>
   )

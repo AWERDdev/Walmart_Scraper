@@ -35,7 +35,7 @@ function App() {
     <div className="Title-Container min-w-[650px]">
 
       <div className="Title  grid justify-center items-center">
-        <h1 className='text-[2.5rem] text-blue-600 font-bold'>Web Scraper</h1>
+        <h1 className='text-[2.5rem] text-blue-600 font-bold'>WALWeb Scraper</h1>
       </div>
 
       <div className="context-Container  grid justify-center items-center ">
@@ -73,7 +73,7 @@ function App() {
       <div className="title"><h1 className='text-[1.5rem]'>Results</h1></div>
       <div className="Result-content"></div>
     </div>
-    
+
   </div>
 </main>
     </>

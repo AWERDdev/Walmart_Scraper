@@ -11,7 +11,12 @@ app.use(express.urlencoded({extended:true}));
 app.get('/',(req,res)=>{
     res.send('welcome to web Scraper API 👍👍')
 });
-
+app.post('/login',(req,res)=>{
+    res.send('I am login Route');
+});
+app.get('/signup',(req,res)=>{
+    res.send('I am signup Route');
+});
 app.get('/FetchURL',async(req,res)=>{
     try{
         const URL = req.query.value

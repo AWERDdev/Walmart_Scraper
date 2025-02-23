@@ -2,6 +2,7 @@ import './App.css'
 import { useState } from 'react'
 import NavBar from './components/NavBar'
 import Result from './components/Result'
+import History_Tap from './components/History_Tap'
 
 function App() {
   const [URL, setURL] = useState('')
@@ -30,10 +31,12 @@ function App() {
 
   return (
     <>
-      <main className="min-h-screen bg-gradient-to-b from-blue-100 to-white px-4">
+      <main className="min-h-screen w-full bg-gradient-to-b from-blue-100 to-white px-4">
         {/* Navigation */}
         <NavBar />
-
+        <History_Tap
+        URL={scrapedData}
+         />
         {/* Title Section */}
         <div className="flex flex-col items-center text-center mt-10">
           <h1 className="text-3xl md:text-5xl text-blue-600 font-bold">WALWeb Scraper</h1>
@@ -68,7 +71,7 @@ function App() {
         </div>
 
         {/* Results */}
-        <div className="flex justify-center mt-16">
+        <div className="flex justify-center mt-12 ml-31">
           {isLoading ? (
             <div className="text-lg font-semibold">Loading...</div>
           ) : (
@@ -83,6 +86,7 @@ function App() {
             )
           )}
         </div>
+
       </main>
     </>
   )

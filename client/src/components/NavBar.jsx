@@ -2,7 +2,7 @@
 function NavBar(){
 return(
 <>
-<main className=" bg-white h-auto w-[full]   box-shadow-lg rounded-md   ">
+<main className=" bg-white h-auto w-full   box-shadow-lg rounded-md   ">
     <header className="flex justify-between">
         <div className="title flex justify-between ml-5">
             <h1 className="text-[1rem] md:text-[2.5rem] text-blue-600 font-bold">WALWebScraper</h1>

@@ -5,6 +5,9 @@ from flask_cors import CORS
 import json  
 import random
 import time
+import sys
+
+sys.stdout.reconfigure(encoding='utf-8')
 
 app = Flask(__name__)
 CORS(app)

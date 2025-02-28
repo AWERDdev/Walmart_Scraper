@@ -1,7 +1,8 @@
 import { Copy } from "lucide-react";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
-function HistoryTap() {
+function HistoryTap({ onClose }) {
   const [URL, setURL] = useState("");
   const [urls, setUrls] = useState([]);
 
@@ -17,8 +18,10 @@ function HistoryTap() {
   };
 
   return (
-    <div className="history-container flex flex-col absolute left-[5px] bg-white h-[90%] w-[21%] min-w-[200px] box-shadow-lg rounded-md overflow-y-auto overflow-x-hidden p-3">
-      
+    <div className="history-container flex flex-col absolute left-[5px] top-[55px] bg-white h-[90%] w-[21%] min-w-[200px] box-shadow-lg rounded-md overflow-y-auto overflow-x-hidden p-3">
+      <div className="show&Hide_Historybar flex justify-end">
+      <button className="close-Container" onClick={onClose}>X</button>
+      </div>
       {/* Input Box */}
       <div className="flex flex-col gap-3 p-3 rounded-md bg-white shadow-md">
         <input
@@ -57,5 +60,9 @@ function HistoryTap() {
     </div>
   );
 }
+
+HistoryTap.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};
 
 export default HistoryTap;

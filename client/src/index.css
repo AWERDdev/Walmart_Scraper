@@ -13,4 +13,8 @@
   --text-blue:"blue-600";
   --gray:"gray-600";
   --gray-light:"gray-100";
+  scrollbar-width: thin;
+}
+html,body{
+  overflow: auto;
 }

@@ -36,7 +36,7 @@ function App() {
     {/* Navigation */}
     <NavBar />
     <div className="History-container w-auto h-auto">
-    <div className="Display_Hide_container w-auto  relative p-5">
+    <div className="Display_Hide_container w-auto ">
     <button 
     onClick={() => setIsVisible(true)} 
     className={`${isVisible ? "hidden" : "block"} px-4 py-2 bg-blue-500 text-white rounded-md`}
@@ -82,7 +82,7 @@ function App() {
     </div>
   
     {/* Results */}
-    <div className="flex justify-center mt-12">
+    <div className="flex justify-center mt-5 ml-35 ">
       {isLoading ? (
         <div className="text-lg font-semibold">Loading...</div>
       ) : (

@@ -20,28 +20,31 @@ function HistoryTap({ onClose }) {
     navigator.clipboard.writeText(text);
   };
 
-  const handleAddURL = () => {
+  const handleAddURL = async ()  => {
     const trimmedURL = URL.trim();
-    console.log("Raw Input:", URL);
-    console.log("Trimmed Input:", trimmedURL);
+    // console.log("Raw Input:", URL);
+    // console.log("Trimmed Input:", trimmedURL);
   
     // Test the new regex
     const isValid = urlRegex.test(trimmedURL);
-    console.log("Regex Test Result:", isValid);
+    // console.log("Regex Test Result:", isValid);
   
     if (isValid) {
-      setUrls((prev) => [trimmedURL, ...prev]);
-      console.log("Updated URLs:", [trimmedURL, ...urls]); // Debugging line
+      const response = await fetch(`http://localhost:3500/fetchSavedURLS?URLS=${trimmedURL}`);
+      const data = await response.json();
+      // console.log("Response Data:", data);
+      setUrls((prev) => [data.URLS, ...prev]);
+      // console.log("Updated URLs:", [trimmedURL, ...urls]); // Debugging line
       setURL("");
       setWarningText("");
     } else {
-      console.log("Invalid URL:", trimmedURL);
+      // console.log("Invalid URL:", trimmedURL);
       setWarningText("Please enter a valid URL");
     }
   };
   
   useEffect(() => {
-    console.log("State Updated URLs:", urls);
+    // console.log("State Updated URLs:", urls);
   }, [urls]); // Logs updated URLs whenever they change
 
   return (

@@ -5,7 +5,7 @@ function Intro() {
   const navigate = useNavigate(); // ✅ Use useNavigate() correctly
 
   const handleNavigate = () => {
-    navigate("/login"); // ✅ Correct navigation
+    navigate("/"); // ✅ Correct navigation
   };
 
   return (

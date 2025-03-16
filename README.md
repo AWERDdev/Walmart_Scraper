@@ -1,6 +1,4 @@
-## Walmart Scraper
 
-```markdown
 # Walmart Scraper
 
 ## Overview

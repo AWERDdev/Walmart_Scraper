@@ -63,7 +63,7 @@ npm install
 
 4. Start the backend:
 ```bash
-npm run devstart
+npm run Devstart
 ```
 
 5. To run a specific scraping task:
